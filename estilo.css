@@ -25,6 +25,6 @@ background: #e8e8e8;
     text-align: center;
 }
 
-.menu li a= :hover{
+.menu li a :hover{
     background: #ef8354;
 }

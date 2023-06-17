@@ -4,10 +4,11 @@ if (desicion == 'si') {
   console.log('-1: 1 mes de prueba + 3 meses \n -2: 1 mes de prueba + 6 meses \n -3: 1 mes de prueba + 1 año')
   
 } else if(desicion == 'no') {
-  console.log('Puede acceder a avances limitados en el menu')
-  
+  console.log('Esta bien')
 }
-let valor = 0
+switch (desicion) {
+  case 'si':
+    let valor = 0
 console.log('Cual plan desea obtener?')
 let planelegido = prompt ()
 function preciofinal (plan) {
@@ -59,6 +60,13 @@ function Descuento (respuesta,valor) {
  
  let respuesta = prompt ('Tiene un codigo de descuento? ')
  respuesta = Descuento (respuesta,valor)
+    
+    break;
+
+  default:
+    break;
+}
+
  
  
 
