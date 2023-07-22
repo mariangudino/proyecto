@@ -68,69 +68,159 @@
 //     break;
 // }
 
-class Usuarioprincipal {
-  constructor (nombre, apellido, Generopreferido){
-    this.nombre= nombre
-    this.apellido= apellido
-    this.Generopreferido= Generopreferido
-  }
-  presentarse(){
-    console.log("El nombre completo del Usuario principal es:"+ this.nombre + ' ' + this.apellido)
-    console.log("...Armando catalago en base al genero: "+ this.Generopreferido )
-  }
+// class Usuarioprincipal {
+//   constructor (nombre, apellido, Generopreferido){
+//     this.nombre= nombre
+//     this.apellido= apellido
+//     this.Generopreferido= Generopreferido
+//   }
+//   presentarse(){
+//     console.log("El nombre completo del Usuario principal es:"+ this.nombre + ' ' + this.apellido)
+//     console.log("...Armando catalago en base al genero: "+ this.Generopreferido )
+//   }
+// }
+
+// console.log('A continuacion voy a pedirle que carge por teclado los datos que se le van a pedir del usuario principal de la cuenta')
+// nombre = prompt('Ingresar el primer nombre del ususario:')
+// apellido = prompt('Ingresar apellido:')
+// Generopreferido = prompt('¿Cual es su genero preferido?')
+// const Usuarioprincipal1 = new Usuarioprincipal (nombre, apellido, Generopreferido)
+// Usuarioprincipal1.presentarse()
+
+// const Peliculasdisponibles = [
+//   {Pelicula: 'El sol que abraza'},
+//   {Pelicula:'Midsomar'},
+//   {Pelicula:'Tiempo de caza'},
+//   {Pelicula:'El padrino'},
+//   {Pelicula:'Akira'},
+
+// ]
+// peliculadeseada = prompt("Que pelicula desea ver? : ")
+
+// const busqueda = Peliculasdisponibles.some ((la) => la.Pelicula == peliculadeseada )
+// console.log(busqueda)
+// if(busqueda == true){
+//   console.log('Preparese para ver la pelicula seleccionada: '+ peliculadeseada)
+// }
+// else {
+//   console.log('Disculpe por el momento no tenemos ese titulo en nuestro catalogo')
+// }
+
+// // Ahora voy a plantear otra situacion usando el metodo filter
+
+// const Genero = [
+//   {Peliculaa: 'La llamada', Generoo: 'terror'},
+//   {Peliculaa: 'Busqueda implacable', Generoo: 'suspenso'},
+//   {Peliculaa: 'No miren arriba', Generoo: 'comedia'},
+//   {Peliculaa: 'Actividad paranormal', Generoo: 'terror'},
+//   {Peliculaa: 'Hangover', Generoo: 'comedia'},
+//   {Peliculaa: 'Paranoia', Generoo: 'suspenso'},
+
+// ]
+
+// let eleccion = prompt('Indique un genero y le mostraremos las peliculas que tenemos')
+
+// const filtrado  = Genero.filter((el) => el.Generoo.includes(eleccion))
+ 
+// function mostrarloquesefiltro (filtrado){
+//   for (let index = 0; index < filtrado.length; index++) {
+//     console.log(filtrado[index].Peliculaa)
+    
+//   }
+// }
+
+// console.log('Estos son los resultados sobre el genero:' + eleccion)
+// mostrarloquesefiltro(filtrado)
+                                            
+const seriesnuevas = [
+  {id: 1,  nombre: "Arrow"},
+  {id: 2,  nombre: "Cazadores de sombras"},
+  {id: 3,  nombre: "The office"} ];
+
+  let contenedor = document.createElement('div')
+  document.body.appendChild(contenedor)
+
+for (const serienueva of seriesnuevas) {
+  let div = document.createElement('div')
+  div.innerHTML=`
+  <h3> id: ${serienueva.id}</h3>
+  <p> nombre: ${serienueva.nombre}</p>
+  `
+  contenedor.appendChild(div)
+  
+}
+var input = document.getElementById ('input')
+input.addEventListener("keydown", textmodificado)
+
+function textmodificado(){
+  var inputtext = document.getElementById ('input-text')
+  inputtext.innerText = input.value
 }
 
-console.log('A continuacion voy a pedirle que carge por teclado los datos que se le van a pedir del usuario principal de la cuenta')
-nombre = prompt('Ingresar el primer nombre del ususario:')
-apellido = prompt('Ingresar apellido:')
-Generopreferido = prompt('¿Cual es su genero preferido?')
-const Usuarioprincipal1 = new Usuarioprincipal (nombre, apellido, Generopreferido)
-Usuarioprincipal1.presentarse()
+localStorage.setItem('Nombredelusuario', 'Mariano')
+let ultimoUsuario = localStorage.getItem('Nombredelusuario')
+let usuarioenlocal = JSON.stringify(localStorage.getItem('Nombredelusuario'))
 
-const Peliculasdisponibles = [
-  {Pelicula: 'El sol que abraza'},
-  {Pelicula:'Midsomar'},
-  {Pelicula:'Tiempo de caza'},
-  {Pelicula:'El padrino'},
-  {Pelicula:'Akira'},
-
-]
-peliculadeseada = prompt("Que pelicula desea ver? : ")
-
-const busqueda = Peliculasdisponibles.some ((la) => la.Pelicula == peliculadeseada )
-console.log(busqueda)
-if(busqueda == true){
-  console.log('Preparese para ver la pelicula seleccionada: '+ peliculadeseada)
+if(usuarioenlocal){
+  ultimoUsuario = usuarioenlocal
 }
 else {
-  console.log('Disculpe por el momento no tenemos ese titulo en nuestro catalogo')
+  ultimoUsuario = prompt("Ingrese nombre de usuario")
+  
 }
 
-// Ahora voy a plantear otra situacion usando el metodo filter
+const busquedasRecientes = [
+  {id: 1, pelicula: "jhon wick"},
+  {id: 2, serie: "the oc"},
+  {id:3, pelicula: "tonto y re tonto"},
+  {id:4, pelicula: "el viaje de chihiro"}
+];
 
-const Genero = [
-  {Peliculaa: 'La llamada', Generoo: 'terror'},
-  {Peliculaa: 'Busqueda implacable', Generoo: 'suspenso'},
-  {Peliculaa: 'No miren arriba', Generoo: 'comedia'},
-  {Peliculaa: 'Actividad paranormal', Generoo: 'terror'},
-  {Peliculaa: 'Hangover', Generoo: 'comedia'},
-  {Peliculaa: 'Paranoia', Generoo: 'suspenso'},
+const guardar = (clave, valor) => {localStorage.setItem(clave, valor)}
 
-]
+//guardamos el array entero en el local
 
-let eleccion = prompt('Indique un genero y le mostraremos las peliculas que tenemos')
+guardar ("Ultimasbusquedas", JSON.stringify(busquedasRecientes));
 
-const filtrado  = Genero.filter((el) => el.Generoo.includes(eleccion))
- 
-function mostrarloquesefiltro (filtrado){
-  for (let index = 0; index < filtrado.length; index++) {
-    console.log(filtrado[index].Peliculaa)
-    
-  }
-}
 
-console.log('Estos son los resultados sobre el genero:' + eleccion)
-mostrarloquesefiltro(filtrado)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
 
 
 
