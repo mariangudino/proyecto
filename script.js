@@ -1,186 +1,164 @@
-// function preciofinal(plan) {
+ const preciofinal = (plan) => {
+  switch (plan) {
+    case '1':
+      console.log('El precio es de: $500');
+      return 500;
+    case '2':
+      console.log('El precio es de: $700');
+      return 700;
+    case '3':
+      console.log('El precio es de: $800');
+      return 800;
+    default:
+      return 0;
+  }
+};
 
-//   switch (plan) {
-//     case '1': console.log('El precio es de : $500')
-//       return 500
-//       break;
+const Descuento = (respuesta, valor) => {
+  const resultado = respuesta === 'si' ? valor * 0.8 : valor;
+  console.log(respuesta === 'si' ? `Ha adquirido un descuento del 20%, su valor final es: $${resultado}` : 'Se mantiene el mismo precio');
+};
 
-//     case '2': console.log('El precio es de : $700')
-//       return 700
-//       break;
 
-//     case '3': console.log('El precio es de : $800')
-//       return 800
+function cantidadDeUsuarios(i) {
+  let usuarios = []; // Crear un arreglo para almacenar los nombres de los usuarios
+  for (let a = 1; a <= i; a++) {
+    let nombreusuario = prompt('Ingrese el nombre del usuario:');
+    usuarios.push(nombreusuario); // Agregar el nombre al arreglo
+    console.log('Creando: ' + nombreusuario);
+  } 
 
-//     default:
-//       break;
-//   }
-// }
+   // Mostrar los nombres de los usuarios usando SweetAlert
+   let usuariosTexto = usuarios.join(', '); // Convertir el arreglo en una cadena
+   Swal.fire({
+     title: 'Usuarios creados:',
+     text: usuariosTexto,
+     icon: 'info'
+   });
+ }
 
-// function Descuento(respuesta, valor) {
-//   if (respuesta == 'si') {
-//     let resultado = valor * 0.2
-//     console.log('Ha adquirido un descuento del 20%, su valor final es:$' + resultado)
 
-//   }
-//   else if (respuesta == 'no') {
-//     console.log('Se mantiene el mismo precio')
-
-//   }
-
-// }
-
-// function cantidadDeUsuarios(i) {
-//   for (let a = 1; a <= i; a++) {
-//     let nombreusuario = prompt('ingrese el nombre del usuario:');
-//     console.log('Creando: ' + nombreusuario)
-//   }
-// }
-
-// console.log('Bienvenido/a a nuestra pagina de streaming de peliculas, series y anime')
-// let desicion = prompt('Desea ver nuestros planes disponibles?')// si o no
-// if (desicion == 'si') {
-//   console.log('-1: 1 mes de prueba + 3 meses \n -2: 1 mes de prueba + 6 meses \n -3: 1 mes de prueba + 1 año')
-
-// } else if (desicion == 'no') {
-//   console.log('Esta bien')
-// }
-// switch (desicion) {
-//   case 'si':
-//     let valor = 0
-//     console.log('Cual plan desea obtener?')
-//     let planelegido = prompt('Cual plan desea obtener?')
-
-//     valor = preciofinal(planelegido)
-
-//     let i = prompt('ingrese el numero de usuarios con los que va a compartir la cuenta:')
-
-//     cantidadDeUsuarios(i)
-
-//     let respuesta = prompt('Tiene un codigo de descuento? ')
-//     respuesta = Descuento(respuesta, valor)
-
+console.log('Bienvenido/a a nuestra página de streaming de películas, series y anime');
+const decisionInput = document.getElementById ("decisioninput")
+const btnsubmit = document.getElementById ("btnSubmit")
+const resultcontainer = document.getElementById ("resultcontainer")
+let decision;
+btnsubmit.addEventListener('click', () => {
+ decision = decisioninput.value.toLowerCase();
+  if(decision == 'si'){
+    resultcontainer.textContent = '-1: 1 mes de prueba + 3 meses \n -2: 1 mes de prueba + 6 meses \n -3: 1 mes de prueba + 1 año ';
     
 
-//     break;
+  } else if (decision == 'no'){
+    resultcontainer.textContent = 'respuesta no valida';
+  }
+} ) ;
 
-//   default:
-//     break;
-// }
-
-// class Usuarioprincipal {
-//   constructor (nombre, apellido, Generopreferido){
-//     this.nombre= nombre
-//     this.apellido= apellido
-//     this.Generopreferido= Generopreferido
-//   }
-//   presentarse(){
-//     console.log("El nombre completo del Usuario principal es:"+ this.nombre + ' ' + this.apellido)
-//     console.log("...Armando catalago en base al genero: "+ this.Generopreferido )
-//   }
-// }
-
-// console.log('A continuacion voy a pedirle que carge por teclado los datos que se le van a pedir del usuario principal de la cuenta')
-// nombre = prompt('Ingresar el primer nombre del ususario:')
-// apellido = prompt('Ingresar apellido:')
-// Generopreferido = prompt('¿Cual es su genero preferido?')
-// const Usuarioprincipal1 = new Usuarioprincipal (nombre, apellido, Generopreferido)
-// Usuarioprincipal1.presentarse()
-
-// const Peliculasdisponibles = [
-//   {Pelicula: 'El sol que abraza'},
-//   {Pelicula:'Midsomar'},
-//   {Pelicula:'Tiempo de caza'},
-//   {Pelicula:'El padrino'},
-//   {Pelicula:'Akira'},
-
-// ]
-// peliculadeseada = prompt("Que pelicula desea ver? : ")
-
-// const busqueda = Peliculasdisponibles.some ((la) => la.Pelicula == peliculadeseada )
-// console.log(busqueda)
-// if(busqueda == true){
-//   console.log('Preparese para ver la pelicula seleccionada: '+ peliculadeseada)
-// }
-// else {
-//   console.log('Disculpe por el momento no tenemos ese titulo en nuestro catalogo')
-// }
-
-// // Ahora voy a plantear otra situacion usando el metodo filter
-
-// const Genero = [
-//   {Peliculaa: 'La llamada', Generoo: 'terror'},
-//   {Peliculaa: 'Busqueda implacable', Generoo: 'suspenso'},
-//   {Peliculaa: 'No miren arriba', Generoo: 'comedia'},
-//   {Peliculaa: 'Actividad paranormal', Generoo: 'terror'},
-//   {Peliculaa: 'Hangover', Generoo: 'comedia'},
-//   {Peliculaa: 'Paranoia', Generoo: 'suspenso'},
-
-// ]
-
-// let eleccion = prompt('Indique un genero y le mostraremos las peliculas que tenemos')
-
-// const filtrado  = Genero.filter((el) => el.Generoo.includes(eleccion))
- 
-// function mostrarloquesefiltro (filtrado){
-//   for (let index = 0; index < filtrado.length; index++) {
-//     console.log(filtrado[index].Peliculaa)
-    
-//   }
-// }
-
-// console.log('Estos son los resultados sobre el genero:' + eleccion)
-// mostrarloquesefiltro(filtrado)
-                                            
-const seriesnuevas = [
-  {id: 1,  nombre: "Arrow"},
-  {id: 2,  nombre: "Cazadores de sombras"},
-  {id: 3,  nombre: "The office"} ];
-
-  let contenedor = document.createElement('div')
-  document.body.appendChild(contenedor)
-
-for (const serienueva of seriesnuevas) {
-  let div = document.createElement('div')
-  div.innerHTML=`
-  <h3> id: ${serienueva.id}</h3>
-  <p> nombre: ${serienueva.nombre}</p>
-  `
-  contenedor.appendChild(div)
-  
-}
-var input = document.getElementById ('input')
-input.addEventListener("keydown", textmodificado)
-
-function textmodificado(){
-  var inputtext = document.getElementById ('input-text')
-  inputtext.innerText = input.value
+class Usuarioprincipal {
+  constructor(nombre, apellido, Generopreferido) {
+    this.nombre = nombre;
+    this.apellido = apellido;
+    this.Generopreferido = Generopreferido;
+  }
+  presentarse() {
+    console.log(`El nombre completo del Usuario principal es: ${this.nombre} ${this.apellido}`);
+    console.log(`...Armando catálogo en base al género: ${this.Generopreferido}`);
+  }
 }
 
-localStorage.setItem('Nombredelusuario', 'Mariano')
-let ultimoUsuario = localStorage.getItem('Nombredelusuario')
-let usuarioenlocal = JSON.stringify(localStorage.getItem('Nombredelusuario'))
+console.log('A continuación, le pediré que ingrese por teclado los datos que se le van a pedir del usuario principal de la cuenta');
+let nombre = prompt('Ingresar el primer nombre del usuario:');
+let apellido = prompt('Ingresar apellido:');
+let Generopreferido = prompt('¿Cuál es su género preferido?');
+const Usuarioprincipal1 = new Usuarioprincipal(nombre, apellido, Generopreferido);
+Usuarioprincipal1.presentarse();
 
-if(usuarioenlocal){
-  ultimoUsuario = usuarioenlocal
+const Peliculasdisponibles = [
+  'El sol que abraza',
+  'Midsomar',
+  'Tiempo de caza',
+  'El padrino',
+  'Akira'
+];
+
+let peliculaDeseada = prompt('¿Qué película desea ver?');
+
+if (Peliculasdisponibles.includes(peliculaDeseada)) {
+  console.log(`Prepárese para ver la película seleccionada: ${peliculaDeseada}`);
+} else {
+  console.log('Disculpe, por el momento no tenemos ese título en nuestro catálogo');
 }
-else {
-  ultimoUsuario = prompt("Ingrese nombre de usuario")
-  
+
+const Genero = [
+  { Peliculaa: 'La llamada', Generoo: 'terror' },
+  { Peliculaa: 'Busqueda implacable', Generoo: 'suspenso' },
+  { Peliculaa: 'No miren arriba', Generoo: 'comedia' },
+  { Peliculaa: 'Actividad paranormal', Generoo: 'terror' },
+  { Peliculaa: 'Hangover', Generoo: 'comedia' },
+  { Peliculaa: 'Paranoia', Generoo: 'suspenso' }
+];
+
+let eleccionGenero = prompt('Indique un género y le mostraremos las películas que tenemos');
+
+const filtrado = Genero.filter((el) => el.Generoo === eleccionGenero);
+
+console.log(`Estos son los resultados sobre el género: ${eleccionGenero}`);
+for (let index = 0; index < filtrado.length; index++) {
+  console.log(filtrado[index].Peliculaa);
+}
+
+const seriesNuevas = [
+  { id: 1, nombre: 'Arrow' },
+  { id: 2, nombre: 'Cazadores de sombras' },
+  { id: 3, nombre: 'The office' }
+];
+
+let contenedor = document.createElement('div');
+document.body.appendChild(contenedor);
+
+for (const serieNueva of seriesNuevas) {
+  let div = document.createElement('div');
+  div.innerHTML = `
+    <h3> id: ${serieNueva.id}</h3>
+    <p> nombre: ${serieNueva.nombre}</p>
+  `;
+  contenedor.appendChild(div);
+}
+
+var input = document.getElementById('input');
+input.addEventListener('keyup', textModificado);
+
+function textModificado() {
+  var inputText = document.getElementById('input-text');
+  inputText.innerText = input.value;
+}
+
+localStorage.setItem('Nombredelusuario', 'Mariano');
+let ultimoUsuario = localStorage.getItem('Nombredelusuario');
+
+if (!ultimoUsuario) {
+  ultimoUsuario = prompt('Ingrese nombre de usuario');
 }
 
 const busquedasRecientes = [
-  {id: 1, pelicula: "jhon wick"},
-  {id: 2, serie: "the oc"},
-  {id:3, pelicula: "tonto y re tonto"},
-  {id:4, pelicula: "el viaje de chihiro"}
+  { id: 1, pelicula: 'John Wick' },
+  { id: 2, serie: 'The OC' },
+  { id: 3, pelicula: 'Tonto y Retonto' },
+  { id: 4, pelicula: 'El viaje de Chihiro' }
 ];
 
-const guardar = (clave, valor) => {localStorage.setItem(clave, valor)}
+localStorage.setItem('Ultimasbusquedas', JSON.stringify(busquedasRecientes));
 
-//guardamos el array entero en el local
+let planElegido = prompt('¿Cuál plan desea obtener?');
+    let valor = preciofinal(planElegido);
 
-guardar ("Ultimasbusquedas", JSON.stringify(busquedasRecientes));
+    let numUsuarios = prompt('Ingrese el número de usuarios con los que va a compartir la cuenta:');
+    cantidadDeUsuarios(numUsuarios);
+
+    let respuestaDescuento = prompt('¿Tiene un código de descuento?');
+    Descuento(respuestaDescuento, valor);
+
+    
 
 
 

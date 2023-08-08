@@ -1,0 +1,14 @@
+{
+    "seriesNuevas": [
+      { "id": 1, "nombre": "Arrow" },
+      { "id": 2, "nombre": "Cazadores de sombras" },
+      { "id": 3, "nombre": "The office" }
+    ],
+    "busquedasRecientes": [
+      { "id": 1, "pelicula": "John Wick" },
+      { "id": 2, "serie": "The OC" },
+      { "id": 3, "pelicula": "Tonto y Retonto" },
+      { "id": 4, "pelicula": "El viaje de Chihiro" }
+    ]
+  }
+  
